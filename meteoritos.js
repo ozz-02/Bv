@@ -8,6 +8,9 @@ window.iniciarMeteoritos = function () {
   const ctx = canvas.getContext('2d');
   const PIXEL_SIZE = 2; 
 
+  // DETECTOR TÁCTIL EN TIEMPO REAL: Identifica celulares y tablets
+  const esCelular = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
   function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -19,10 +22,14 @@ window.iniciarMeteoritos = function () {
     constructor(x, y, color) {
       this.x = x;
       this.y = y;
-      this.vx = (Math.random() - 0.5) * 1.5;
-      this.vy = (Math.random() - 0.5) * 1.5;
+
+      const factorVelocidad = esCelular ? 0.5 : 1.0;
+      this.vx = (Math.random() - 0.5) * 1.5 * factorVelocidad;
+      this.vy = (Math.random() - 0.5) * 1.5 * factorVelocidad;
+      
       this.life = 1;
-      this.decay = Math.random() * 0.06 + 0.03;
+
+      this.decay = esCelular ? (Math.random() * 0.04 + 0.02) : (Math.random() * 0.06 + 0.03);
       this.color = color;
     }
 
@@ -63,28 +70,31 @@ window.iniciarMeteoritos = function () {
 
       const spawnFromTop = Math.random() < 0.7;
 
+      const baseVelocidad = esCelular ? (Math.random() * 3 + 4.5) : (Math.random() * 8 + 8);
+
       if (spawnFromTop) {
         this.x = minX + Math.random() * imgWidth;
         this.y = -20;
         
         const isLeft = this.x < (minX + imgWidth / 2);
         const angle = (Math.random() * Math.PI * 0.25) + (Math.PI * 0.1);
-        const speed = Math.random() * 8 + 8;
-        this.vx = Math.cos(angle) * speed * (isLeft ? 1 : -1);
-        this.vy = Math.sin(angle) * speed;
+        this.vx = Math.cos(angle) * baseVelocidad * (isLeft ? 1 : -1);
+        this.vy = Math.sin(angle) * baseVelocidad;
       } else {
         const isLeftEdge = Math.random() < 0.5;
         this.x = isLeftEdge ? minX : maxX;
-        this.y = Math.random() * (canvas.height * 0.35);
+        
+        this.y = Math.random() * (canvas.height * (esCelular ? 0.20 : 0.35));
 
-        const speed = Math.random() * 8 + 8;
         const angle = (Math.random() * Math.PI * 0.2) + (Math.PI * 0.15); 
-        this.vx = Math.cos(angle) * speed * (isLeftEdge ? 1 : -1);
-        this.vy = Math.sin(angle) * speed;
+        this.vx = Math.cos(angle) * baseVelocidad * (isLeftEdge ? 1 : -1);
+        this.vy = Math.sin(angle) * baseVelocidad;
       }
 
       this.distanceTraveled = 0;
-      this.maxDistance = Math.random() * 450 + 450; 
+
+      this.maxDistance = esCelular ? (Math.random() * 180 + 180) : (Math.random() * 450 + 450); 
+      
       this.opacity = 1;
       this.sparks = [];
     }
@@ -113,7 +123,9 @@ window.iniciarMeteoritos = function () {
         if (spark.life <= 0) this.sparks.splice(index, 1);
       });
 
-      if (this.distanceTraveled >= this.maxDistance || this.opacity <= 0 || this.y > canvas.height * 0.62) {
+      const limiteAlturaMax = esCelular ? (canvas.height * 0.48) : (canvas.height * 0.62);
+
+      if (this.distanceTraveled >= this.maxDistance || this.opacity <= 0 || this.y > limiteAlturaMax) {
         this.active = false;
       }
     }
@@ -171,7 +183,8 @@ window.iniciarMeteoritos = function () {
       }
 
       spawnTimer = 0;
-      nextSpawnTime = Math.floor(Math.random() * 60 + 12); 
+      const rangoAparicion = esCelular ? 120 : 60;
+      nextSpawnTime = Math.floor(Math.random() * rangoAparicion + 12); 
     }
 
     meteors.forEach(m => {
