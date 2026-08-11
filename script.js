@@ -323,7 +323,7 @@ window.addEventListener('keydown', (evento) => {
                 cajaDialogo.classList.add('oculto');
                 setTimeout(() => {
                     temp = setTimeout(lanzarmensajito(), 150000);
-                }, 1000);
+                }, 10000);
             }
             if (diag2 === true) {
                 console.log('diag2 false')
@@ -337,7 +337,7 @@ window.addEventListener('keydown', (evento) => {
                 window.iniciarMeteoritos();
                 setTimeout(() => {
                     temp = setTimeout(lanzarmensajito(), 150000);
-                }, 1000);
+                }, 10000);
             }
             if (msg === true) {
                 console.log('msg false');
