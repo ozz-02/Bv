@@ -31,7 +31,7 @@ body {
 .controles-tactiles {
     display: none;
 }
-@media (max-width: 768px){
+@media (pointer: coarse){
     .dialogo {
         width: 60% !important;
         right: 15px !important;
