@@ -97,7 +97,7 @@ let diag2 = false;
 let msg = false;
 let temp;
 
-const esCelular= window.innerWidth <= 768;
+const esCelular= ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
 if (esCelular) {
     textoInicio = "presiona para iniciar;)";
