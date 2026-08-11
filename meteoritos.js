@@ -58,7 +58,8 @@ window.iniciarMeteoritos = function () {
 
     spawn() {
       this.active = true;
-      this.thickness = 2;
+      
+      this.thickness = esCelular ? 1.2 : 2;
       
       const hue = Math.random() * 20 + 200;
       this.headColor = `hsl(${hue}, 20%, 95%)`;
@@ -92,7 +93,6 @@ window.iniciarMeteoritos = function () {
       }
 
       this.distanceTraveled = 0;
-
       this.maxDistance = esCelular ? (Math.random() * 180 + 180) : (Math.random() * 450 + 450); 
       
       this.opacity = 1;
@@ -114,6 +114,16 @@ window.iniciarMeteoritos = function () {
         this.opacity = Math.max(0, 1 - progress);
       }
 
+      const alturaInicioDesvanecer = esCelular ? (canvas.height * 0.38) : (canvas.height * 0.52);
+      const alturaLimiteTotal = esCelular ? (canvas.height * 0.48) : (canvas.height * 0.62);
+
+      if (this.y > alturaInicioDesvanecer) {
+
+        const progresoAltura = (this.y - alturaInicioDesvanecer) / (alturaLimiteTotal - alturaInicioDesvanecer);
+        
+        this.opacity = Math.min(this.opacity, Math.max(0, 1 - progresoAltura));
+      }
+
       if (this.opacity > 0.4 && Math.random() < 0.12) {
         this.sparks.push(new PixelSpark(this.x, this.y, this.trailColor));
       }
@@ -123,9 +133,7 @@ window.iniciarMeteoritos = function () {
         if (spark.life <= 0) this.sparks.splice(index, 1);
       });
 
-      const limiteAlturaMax = esCelular ? (canvas.height * 0.48) : (canvas.height * 0.62);
-
-      if (this.distanceTraveled >= this.maxDistance || this.opacity <= 0 || this.y > limiteAlturaMax) {
+      if (this.distanceTraveled >= this.maxDistance || this.opacity <= 0 || this.y > alturaLimiteTotal) {
         this.active = false;
       }
     }
