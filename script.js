@@ -191,7 +191,7 @@ function escribirTexto() {
         letraActual++;
         escribiendo = true;
         salto = false;
-        if (dialogoTexto === "aunq seguro t termine botando d la cama, ya q m muevo un monton dormido XD" || dialogoTexto === "o sal si quieres ns XD" || dialogoTexto === "los emojis salen raros siono XDDd" || dialogoTexto === "(y si, si m he imaginado q era yo el q estaba durmiendo en tu hombro je)" || dialogoTexto === "lady eres hermosa, qn es emma stone a tu lado, quiero besarte y hacer mas cositas, ñamñam" || dialogoTexto === "y emma si es bonita ya" || dialogoTexto === "JOJOJOJO, NUNCA M OLVIDARE🗣️🗣️" || dialogoTexto === "(lo d los bolos no importa ya)") {
+        if (dialogoTexto === "aunq seguro t termine botando d la cama, ya q m muevo un monton dormido XDDD" || dialogoTexto === "o sal si quieres ns XD" || dialogoTexto === "los emojis salen raros siono XDDd" || dialogoTexto === "(y si, si m he imaginado q era yo el q estaba durmiendo en tu hombro je)" || dialogoTexto === "lady eres hermosa, qn es emma stone a tu lado, quiero besarte y hacer mas cositas, ñamñam" || dialogoTexto === "y emma si es bonita ya" || dialogoTexto === "JOJOJOJO, NUNCA M OLVIDARE🗣️🗣️" || dialogoTexto === "(lo d los bolos no importa ya)") {
             setTimeout(escribirTexto, velocidadEscritura/2)
         }
         else {
