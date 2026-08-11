@@ -71,7 +71,7 @@ window.iniciarMeteoritos = function () {
 
       const spawnFromTop = Math.random() < 0.7;
 
-      const baseVelocidad = esCelular ? (Math.random() * 2 + 3.5) : (Math.random() * 8 + 8);
+      const baseVelocidad = esCelular ? (Math.random() * 2 + 2.5) : (Math.random() * 8 + 8);
 
       if (spawnFromTop) {
         this.x = minX + Math.random() * imgWidth;
