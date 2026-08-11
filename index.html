@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>      
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FelizCumpleMiLady</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="spaceCanvas"></canvas>
+    <h1 id="inicio"></h1>
+    <button id="btn-tactil-s" class="oculto">S</button>
+    <div class="dialogo oculto">
+        <p id="texto"></p>
+        <div id="contenedor-opciones" class="oculto">
+            <div class="opcion activa" data-valor="no">No</div>
+            <div class="opcion" data-valor="si">Si</div>
+        </div>
+        <div class="controles-tactiles">
+            <button id="btn-tactil-izq" class="oculto">◀</button>
+            <button id="btn-tactil-z">Z</button>
+            <button id="btn-tactil-der" class="oculto">▶</button>
+        </div>
+    </div>
+    <audio src="music/Ichinichi no Hajimari.mp3" id="musica-fondo"></audio>
+    <audio src="effects/undertale-text.mp3" id="sonido-letra"></audio>
+    <audio src="effects/undertale-move-selection-sound-effect.mp3" id="sonido-seleccion"></audio>
+    <script src="meteoritos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
