@@ -130,6 +130,12 @@ body {
     gap: 40px;
     margin-top: 15px;
 }
+#contenedor-opciones2 {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    margin-top: 15px;
+}
 .opcion {
     font-family: 'Press Start 2P', sans-serif;
     color: white;
