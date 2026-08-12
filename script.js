@@ -67,7 +67,7 @@ const mensajitos = [
     ["oyee y cm esta rumi?..", "aun m acuerdo d la fto q m mandaste d cm ella estaba durmiendo contigo ufuff", "envidia", "(y si, si m he imaginado q era yo el q estaba durmiendo en tu hombro je)", "(algun dia..)", "(ojala pronto owo)"],
     ["holam, texto d pruebita:v", "jojoj, a ver si sale este", "lady eres hermosa, qn es emma stone a tu lado, quiero besarte y hacer mas cositas, ñamñam", "si salio XDDDD", "...", "m dio flojera borrar las pruebitas q hice jej", "y emma si es bonita ya"],
     ["(imagina q estamos juntos sentados viendo el cielo...)", "(m acerco lentamente a ti, te tomo la mano...)", "(t acomodo el pelo atras d la oreja y t miro fijamente..)", "(y acercandome lenta y suavemente a tu oido, t digo...)", "...", "mi amor...", "t acuerdas cuando t gane 16-10 en plato?...", "JOJOJOJO, NUNCA M OLVIDARE🗣️🗣️", "(lo d los bolos no importa ya)"],
-    ["sigues aqui..?", "...", "te amo;)"]
+    ["sigues aqui..?", "...", "te amo"]
 ]
 
 let listadialogos = [];
@@ -105,7 +105,7 @@ if (esCelular) {
         "ladyy, holaam (presiona z para el siguiente jij)",
         "t hice esta paginita por tu cumplee (ya sbs soy d chistemas), espero t guste uwu..",
         "entons empiezoxd",
-        "por cierto, si quieres poner en pantalla completa solo echa tu cel:b",
+        "por cierto, si quieres poner en pantalla completa solo echa tu cel:b (tmb para q se vea bnXd, asiq hazlo)",
         "yyy nda, queria desearte un feliz cumplee, espero q t gustee esta paginitaa, lo hice con amor solo para ti;)",
         "y t queria hacer una pregunta...",
         "sbs q sucede hoy? (aparte d tu cumple aja)...",
