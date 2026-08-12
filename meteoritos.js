@@ -71,7 +71,7 @@ window.iniciarMeteoritos = function () {
 
       const spawnFromTop = Math.random() < 0.7;
 
-      const baseVelocidad = esCelular ? (Math.random() * 2 + 2.5) : (Math.random() * 8 + 4);
+      const baseVelocidad = esCelular ? (Math.random() * 2 + 2.5) : (Math.random() * 4 + 4);
 
       if (spawnFromTop) {
         this.x = minX + Math.random() * imgWidth;
@@ -93,7 +93,7 @@ window.iniciarMeteoritos = function () {
       }
 
       this.distanceTraveled = 0;
-      this.maxDistance = esCelular ? (Math.random() * 180 + 180) : (Math.random() * 450 + 450); 
+      this.maxDistance = esCelular ? (Math.random() * 180 + 130) : (Math.random() * 450 + 450); 
       
       this.opacity = 1;
       this.sparks = [];
@@ -145,7 +145,9 @@ window.iniciarMeteoritos = function () {
 
       const steps = 16;
       const angle = Math.atan2(this.vy, this.vx);
-      const trailLength = (Math.sqrt(this.vx * this.vx + this.vy * this.vy) * 3.2);
+      const velocidadActual = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+      const multiplicadorEstela = esCelular ? 5.5 : 6.5;
+      const trailLength = velocidadActual * multiplicadorEstela;
 
       ctx.save();
       ctx.globalAlpha = this.opacity;
