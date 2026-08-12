@@ -57,7 +57,7 @@ const playlist = [
 ]
 
 const mensajitos = [
-    ["holaa mi ladyy, t molesto otra vez jij..", "pero si t qdas un ratito por aca t deje unos mensajitos q t saldran..", "asiq no t vayas tan rapido;)", "o sal si quieres ns XD"],
+    ["holaa mi ladyy, t molesto otra vez jij..", "pero si t qdas un ratito por aca t deje unos mensajitos q t saldran..", "asiq no t vayas tan rapido;)", "o sal si quieres ns XD", "(cda tanto tratare d ponerte nuevos, pasa por aqui seguido:b)"],
     ["oyee cielitoo, sabias q al presionar S puedes saltar a la siguiente cancion?", "por si quieres jij"],
     ["algunos meteoritos se ven raros no", "no programe bn je",],
     ["esta bonita la noche, no?", "y hay luna llena, justo para ti mi lobita;)", "auuuu"],
