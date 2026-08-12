@@ -93,7 +93,7 @@ window.iniciarMeteoritos = function () {
       }
 
       this.distanceTraveled = 0;
-      this.maxDistance = esCelular ? (Math.random() * 180 + 130) : (Math.random() * 450 + 450); 
+      this.maxDistance = esCelular ? (Math.random() * 180 + 200) : (Math.random() * 450 + 450); 
       
       this.opacity = 1;
       this.sparks = [];
