@@ -32,6 +32,17 @@ btnTactilDer.addEventListener("click", (e) => {
     simularTeclaFisica("ArrowRight");
 });
 
+let contadorVisitas = parseInt(localStorage.getItem("visitasWeb")) || 0;
+
+setTimeout(() => {
+    let visitasActuales = parseInt(localStorage.getItem("visitasWeb") || 0);
+    visitasActuales++;
+    localStorage.setItem("visitasWeb", visitasActuales);
+    console.log('mas una visita:b (tengo sueño son las 2 d la mñn)')
+}, 420000);
+
+console.log("visitas actuales: " + contadorVisitas);
+
 let indiceActual = 0;
 
 const playlist = [
@@ -67,7 +78,7 @@ const mensajitos = [
     ["oyee y cm esta rumi?..", "aun m acuerdo d la fto q m mandaste d cm ella estaba durmiendo contigo ufuff", "envidia", "(y si, si m he imaginado q era yo el q estaba durmiendo en tu hombro je)", "(algun dia..)", "(ojala pronto owo)"],
     ["holam, texto d pruebita:v", "jojoj, a ver si sale este", "lady eres hermosa, qn es emma stone a tu lado, quiero besarte y hacer mas cositas, ñamñam", "si salio XDDDD", "...", "m dio flojera borrar las pruebitas q hice jej", "y emma si es bonita ya"],
     ["(imagina q estamos juntos sentados viendo el cielo...)", "(m acerco lentamente a ti, te tomo la mano...)", "(t acomodo el pelo atras d la oreja y t miro fijamente..)", "(y acercandome lenta y suavemente a tu oido, t digo...)", "...", "mi amor...", "t acuerdas cuando t gane 16-10 en plato?...", "JOJOJOJO, NUNCA M OLVIDARE🗣️🗣️", "(lo d los bolos no importa ya)"],
-    ["sigues aqui..?", "...", "te amo♥"]
+    ["sigues aqui..?", "...", "te amo♥", "(tengo sueño son las 2 d la mñn)", "pero por ti lo q sea mi aldy;)", "(en serio creo q deberia dormir mas temprano Xd)"]
 ]
 
 let listadialogos = [];
@@ -81,6 +92,7 @@ let letraActual = 0;
 const velocidadEscritura = 100;
 
 const contenedorOpciones = document.getElementById('contenedor-opciones');
+const contenedorOpciones2 = document.getElementById('contenedor-opciones2');
 let mostrandoOpciones = false;
 let opcionSeleccionada = 0;
 
@@ -93,35 +105,63 @@ let escribiendo = false;
 let salto = false;
 let ini = true;
 let exp = false;
+let volv = false;
 let diag2 = false;
 let msg = false;
 let temp;
+let varopciones;
 
 const esCelular= ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);;
 
 if (esCelular) {
     textoInicio = "presiona para iniciar;)";
-    listadialogos = [
-        "ladyy, holaam (presiona z para el siguiente jij)",
-        "t hice esta paginita por tu cumplee (ya sbs soy d chistemas), espero t guste uwu..",
-        "entons empiezoxd",
-        "por cierto, si quieres poner en pantalla completa solo echa tu cel:b (tmb para q se vea bnXd, asiq hazlo)",
-        "yyy nda, queria desearte un feliz cumplee, espero q t gustee esta paginitaa, lo hice con amor solo para ti;)",
-        "y t queria hacer una pregunta...",
-        "sbs q sucede hoy? (aparte d tu cumple aja)...",
-    ]
+    if (contadorVisitas > 3) {
+        volv = true;
+        console.log("volv true");
+        listadialogos = [
+            "ladyy, holaam (presiona z para el siguiente jij)",
+            "t hice esta paginita por tu cumplee (ya sbs soy d chistemas), espero t guste uwu..",
+            "....",
+            "espera...", 
+            "ya leiste esto antes?"
+        ]
+    }
+    else {
+        listadialogos = [
+            "ladyy, holaam (presiona z para el siguiente jij)",
+            "t hice esta paginita por tu cumplee (ya sbs soy d chistemas), espero t guste uwu..",
+            "entons empiezoxd",
+            "por cierto, si quieres poner en pantalla completa solo echa tu cel:b (tmb para q se vea bnXd, asiq hazlo)",
+            "yyy nda, queria desearte un feliz cumplee, espero q t gustee esta paginitaa, lo hice con amor solo para ti;)",
+            "y t queria hacer una pregunta...",
+            "sbs q sucede hoy? (aparte d tu cumple aja)...",
+        ]
+    }
 }
 else {
     textoInicio = "haz click para iniciar;)";
-    listadialogos = [
-        "ladyy, holaam (presiona z para el siguiente jij)",
-        "t hice esta paginita por tu cumplee (ya sbs soy d chistemas), espero t guste uwu..",
-        "entons empiezoxd",
-        "por cierto, si quieres poner en pantalla completa presiona f11;)",
-        "yyy nda, queria desearte un feliz cumplee, espero q t gustee esta paginitaa, lo hice con amor solo para ti;)",
-        "y t queria hacer una pregunta...",
-        "sbs q sucede hoy? (aparte d tu cumple aja)...",
-    ]
+    if (contadorVisitas > 3) {
+        volv = true;
+        console.log("volv true");
+        listadialogos = [
+            "ladyy, holaam (presiona z para el siguiente jij)",
+            "t hice esta paginita por tu cumplee (ya sbs soy d chistemas), espero t guste uwu..",
+            "....",
+            "espera...", 
+            "ya leiste esto antes?"
+        ]
+    }
+    else {
+        listadialogos = [
+            "ladyy, holaam (presiona z para el siguiente jij)",
+            "t hice esta paginita por tu cumplee (ya sbs soy d chistemas), espero t guste uwu..",
+            "entons empiezoxd",
+            "por cierto, si quieres poner en pantalla completa presiona f11;)",
+            "yyy nda, queria desearte un feliz cumplee, espero q t gustee esta paginitaa, lo hice con amor solo para ti;)",
+            "y t queria hacer una pregunta...",
+            "sbs q sucede hoy? (aparte d tu cumple aja)...",
+        ]
+    }
 }
 
 function dialogos2() {
@@ -172,12 +212,35 @@ function explicacion() {
     )
 }
 
+function volviste() {
+    listadialogos.length = 0;
+    listadialogos.push (
+        "uhh okk, entons nos saltamos tdo je..",
+        "gracias por volver seguido amor:b",
+        "(si leiste esto, m hiciste muy feliz:b)",
+        "(pq m costo programarlo jij)",
+        "ya si",
+        "t dejo para q veas la noche mi princesa ;)",
+        "(tengo sueño son las 2 d la mñn)",
+        "pero por ti lo q sea mi lady ;)",
+        "(en serio creo q deberia dormir mas temprano Xd)",
+        "reciclaba dialogos no"
+    )
+    letraActual = 0;
+    dialogoActual = 0;
+    escribirTexto();
+}
+
 function inicio() {
     if (letraInicioActual < textoInicio.length) {
         contenedorInicio.textContent += textoInicio.charAt(letraInicioActual);
         letraInicioActual++;
         setTimeout(inicio, 50);
     }
+    if (contadorVisitas > 3) {
+        varopciones = 1;
+    }
+
 }
 
 inicio();
@@ -191,7 +254,7 @@ function escribirTexto() {
         letraActual++;
         escribiendo = true;
         salto = false;
-        if (dialogoTexto === "aunq seguro t termine botando d la cama, ya q m muevo un monton dormido XDDD" || dialogoTexto === "o sal si quieres ns XD" || dialogoTexto === "los emojis salen raros siono XDDd" || dialogoTexto === "(y si, si m he imaginado q era yo el q estaba durmiendo en tu hombro je)" || dialogoTexto === "lady eres hermosa, qn es emma stone a tu lado, quiero besarte y hacer mas cositas, ñamñam" || dialogoTexto === "y emma si es bonita ya" || dialogoTexto === "JOJOJOJO, NUNCA M OLVIDARE🗣️🗣️" || dialogoTexto === "(lo d los bolos no importa ya)") {
+        if (dialogoTexto === "ya si" || dialogoTexto === "aunq seguro t termine botando d la cama, ya q m muevo un monton dormido XDDD" || dialogoTexto === "o sal si quieres ns XD" || dialogoTexto === "los emojis salen raros siono XDDd" || dialogoTexto === "(y si, si m he imaginado q era yo el q estaba durmiendo en tu hombro je)" || dialogoTexto === "lady eres hermosa, qn es emma stone a tu lado, quiero besarte y hacer mas cositas, ñamñam" || dialogoTexto === "y emma si es bonita ya" || dialogoTexto === "JOJOJOJO, NUNCA M OLVIDARE🗣️🗣️" || dialogoTexto === "(lo d los bolos no importa ya)" || dialogoTexto === "(pq m costo programarlo jij)" || dialogoTexto === "(oye y gracias por volver m hiciste feliz:b)" || dialogoTexto === "(tengo sueño son las 2 d la mñn)" || dialogoTexto === "(en serio creo q deberia dormir mas temprano Xd)") {
             setTimeout(escribirTexto, velocidadEscritura/2)
         }
         else {
@@ -201,7 +264,14 @@ function escribirTexto() {
     else {
         sonidoLetra.pause();
         escribiendo = false;
-        if (ini === true && dialogoActual === 6) {
+        if (contadorVisitas > 3 && ini === true && dialogoActual === 4) {
+            ini = false;
+            btnTactilIzq.classList.remove('oculto');
+            btnTactilDer.classList.remove('oculto'); 
+            mostrandoOpciones = true;
+            contenedorOpciones2.classList.remove('oculto');
+        }
+        if ((ini === true || volv === true) && dialogoActual === 6) {
             ini = false;
             btnTactilIzq.classList.remove('oculto');
             btnTactilDer.classList.remove('oculto'); 
@@ -215,7 +285,13 @@ function escribirTexto() {
 }
 
 function actualizarOpciones() {
-    const opcionesHTML = document.querySelectorAll('.opcion');
+    let contenedorActivo;
+        if (!document.getElementById("contenedor-opciones").classList.contains("oculto")) {
+            contenedorActivo = document.getElementById("contenedor-opciones");
+        } else {
+            contenedorActivo = document.getElementById("contenedor-opciones2");
+        }
+    const opcionesHTML = contenedorActivo.querySelectorAll('.opcion');
     opcionesHTML.forEach((opcion, index) => {
         if (index === opcionSeleccionada) {
             opcion.classList.add('activa');
@@ -245,7 +321,13 @@ function lanzarmensajito() {
 
 window.addEventListener('keydown', (evento) => {
     if (mostrandoOpciones) {
-        const opcionesHTML = document.querySelectorAll('.opcion');
+        let contenedorActivo;
+        if (!document.getElementById("contenedor-opciones").classList.contains("oculto")) {
+            contenedorActivo = document.getElementById("contenedor-opciones");
+        } else {
+            contenedorActivo = document.getElementById("contenedor-opciones2");
+        }
+        const opcionesHTML = contenedorActivo.querySelectorAll('.opcion');
         if (evento.key === 'ArrowRight') {
             if (opcionSeleccionada < opcionesHTML.length - 1) {
                 opcionSeleccionada++;
@@ -259,24 +341,58 @@ window.addEventListener('keydown', (evento) => {
             }
         }
         if (evento.key === 'z' || evento.code === 'Z') {
-            contenedorTexto.textContent = '';
-            const valorElegido = opcionesHTML[opcionSeleccionada].getAttribute('data-valor');
-            mostrandoOpciones = false;
-            btnTactilIzq.classList.add('oculto');
-            btnTactilDer.classList.add('oculto'); 
-            contenedorOpciones.classList.add('oculto');
-            letraActual = 0;
-            if (valorElegido === 'si') {
-                listadialogos.length = 0;
-                dialogos2();
+            if (contadorVisitas > 3 && varopciones === 1) {
+                contenedorTexto.textContent = '';
+                const valorElegido = opcionesHTML[opcionSeleccionada].getAttribute('data-valor');
+                mostrandoOpciones = false;
+                btnTactilIzq.classList.add('oculto');
+                btnTactilDer.classList.add('oculto'); 
+                contenedorOpciones2.classList.add('oculto');
+                letraActual = 0;
+                if (valorElegido === 'si') {
+                    listadialogos.length = 0;
+                    volviste();
+                }
+                else {
+                    listadialogos.length = 0;
+                    listadialogos.push (
+                        "ladyy, holaam (presiona z para el siguiente jij)",
+                        "t hice esta paginita por tu cumplee (ya sbs soy d chistemas), espero t guste uwu..",
+                        "entons continuamos cm siempre ;)",
+                        "(oye y gracias por volver m hiciste feliz:b)",
+                        "yyy nda, queria desearte un feliz cumplee, espero q t gustee esta paginitaa, lo hice con amor solo para ti;)",
+                        "y t queria hacer una pregunta...",
+                        "sbs q sucede hoy? (aparte d tu cumple aja)...",
+                    )
+                    opcionSeleccionada = 0;
+                    varopciones = 0;
+                    letraActual = 0;
+                    dialogoActual = 1;
+                    escribirTexto();
+                }
             }
             else {
-                listadialogos.length = 0;
-                explicacion();
+                contenedorTexto.textContent = '';
+                const valorElegido = opcionesHTML[opcionSeleccionada].getAttribute('data-valor');
+                mostrandoOpciones = false;
+                btnTactilIzq.classList.add('oculto');
+                btnTactilDer.classList.add('oculto'); 
+                contenedorOpciones.classList.add('oculto');
+                letraActual = 0;
+                if (valorElegido === 'si') {
+                    listadialogos.length = 0;
+                    dialogos2();
+                }
+                else {
+                    listadialogos.length = 0;
+                    explicacion();
+                }
+                opcionSeleccionada = 0;
+                letraActual = 0;
+                dialogoActual = -1;
+                escribirTexto();
             }
-            letraActual = 0;
-            dialogoActual = -1;
-            escribirTexto();
+            
         }
     }
     return;
@@ -328,6 +444,20 @@ window.addEventListener('keydown', (evento) => {
             if (diag2 === true) {
                 console.log('diag2 false')
                 diag2 = false;
+                contenedorTexto.textContent = '';
+                console.log('limpiando..')
+                cajaDialogo.classList.add('oculto');
+                musica.src = playlist[0];
+                musica.volume = 0.7;
+                musica.play();
+                window.iniciarMeteoritos();
+                setTimeout(() => {
+                    temp = setTimeout(lanzarmensajito(), 150000);
+                }, 10000);
+            }
+            if (volv === true) {
+                console.log('volv false')
+                volv = false;
                 contenedorTexto.textContent = '';
                 console.log('limpiando..')
                 cajaDialogo.classList.add('oculto');
