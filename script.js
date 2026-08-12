@@ -53,6 +53,7 @@ const playlist = [
     "music/Yachin ga Hanbun!_.mp3",
     "music/Koisuru Hachi.mp3",
     "music/Aitaiyo.mp3",
+    "music/Art School.mp3",
     "music/You Can Always Come Home.mp3",
     "music/Hotel.mp3",
     "music/Lancer.mp3",
@@ -64,7 +65,8 @@ const playlist = [
     "music/Hip Shop.mp3",
     "music/Shop.mp3",
     "music/Home.mp3",
-    "music/Can You Really Call This A Hotel, I Didn't Receive A Mint On My Pillow Or Anything.mp3"
+    "music/Can You Really Call This A Hotel, I Didn't Receive A Mint On My Pillow Or Anything.mp3",
+    "music/Wii Party.mp3"
 ]
 
 const mensajitos = [
