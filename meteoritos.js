@@ -146,7 +146,7 @@ window.iniciarMeteoritos = function () {
       const steps = 16;
       const angle = Math.atan2(this.vy, this.vx);
       const velocidadActual = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
-      const multiplicadorEstela = esCelular ? 5.5 : 6.5;
+      const multiplicadorEstela = esCelular ? 5 : 6.5;
       const trailLength = velocidadActual * multiplicadorEstela;
 
       ctx.save();
