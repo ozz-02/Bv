@@ -478,21 +478,14 @@ window.addEventListener('keydown', (evento) => {
                 contenedorTexto.textContent = '';
                 cajaDialogo.classList.add('oculto');
                 setTimeout(() => {
-                    temp = setTimeout(lanzarmensajito(), 120000);
-                }, 120000);
+                    temp = setTimeout(lanzarmensajito(), 100000);
+                }, 100000);
             }
         }
     }
 });
 
 musica.addEventListener('ended', () => {
-    if (exp === true) {
-        indiceActual = (indiceActual+1) % 2;
-        musica.src = playlist[indiceActual];
-        musica.volume = 0.7;
-        musica.play();
-        return;
-    }
     indiceActual = indiceActual + 1;
     indiceActual = indiceActual % playlist.length;
     musica.src = playlist[indiceActual];
