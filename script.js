@@ -80,7 +80,7 @@ const mensajitos = [
     ["oyee y cm esta rumi?..", "aun m acuerdo d la fto q m mandaste d cm ella estaba durmiendo contigo ufuff", "envidia", "(y si, si m he imaginado q era yo el q estaba durmiendo en tu hombro je)", "(algun dia..)", "(ojala pronto owo)"],
     ["holam, texto d pruebita:v", "jojoj, a ver si sale este", "lady eres hermosa, qn es emma stone a tu lado, quiero besarte y hacer mas cositas, ñamñam", "si salio XDDDD", "...", "m dio flojera borrar las pruebitas q hice jej", "y emma si es bonita ya"],
     ["(imagina q estamos juntos sentados viendo el cielo...)", "(m acerco lentamente a ti, te tomo la mano...)", "(t acomodo el pelo atras d la oreja y t miro fijamente..)", "(y acercandome lenta y suavemente a tu oido, t digo...)", "...", "mi amor...", "t acuerdas cuando t gane 16-10 en plato?...", "JOJOJOJO, NUNCA M OLVIDARE🗣️🗣️", "(lo d los bolos no importa ya)"],
-    ["sigues aqui..?", "...", "te amo♥", "(tengo sueño son las 2 d la mñn)", "pero por ti lo q sea mi aldy;)", "(en serio creo q deberia dormir mas temprano Xd)"]
+    ["sigues aqui..?", "...", "te amo♥", "(tengo sueño son las 2 d la mñn)", "pero por ti lo q sea mi lady;)", "(en serio creo q deberia dormir mas temprano Xd)"]
 ]
 
 let listadialogos = [];
