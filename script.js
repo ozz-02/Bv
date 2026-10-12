@@ -48,6 +48,7 @@ let indiceActual = 0;
 const playlist = [
     "music/Acid Tunnel of Love.mp3",
     "music/Ferris Wheel.mp3",
+    "music/Oh! One True Love.mp3",
     "music/Ichinichi no Hajimari.mp3",
     "music/707Goshitsu.mp3",
     "music/Yachin ga Hanbun!_.mp3",
